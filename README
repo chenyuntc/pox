@@ -1,36 +1,26 @@
-POX is a networking software platform written in Python
+POX是一个开源的OpenFlow 控制器，我们是来自北邮的创项目数据并行计算的软硬件项目成员，我们fork了POX之后
+参考POX的相关代码，实线了主要以下三个功能
+1.简单的防火墙
+2.缓存服务器
+3.负载均衡集群
+相关代码均存放forwaring 文件夹下
+ 
+ 
+ 欲实线相关功能打开相关文件 ，比如要验证负载均衡功能
+ you—directory/pox.py forwarding.l3_learning misc.ip_loadbalancer --ip=10.0.0.15 --servers=10.0.0.1,10.0.0.2,10.0.0.3 
 
-POX started life as an OpenFlow controller, but can now also function
-as an OpenFlow switch, and can be useful for writing networking software
-in general.
+然后用mininet实验平台打开
+sudo mn  --topo single,4 --mac  --controller remote
 
-POX officially requires Python 2.7 (though much of it will work fine
-fine with Python 2.6), and should run under Linux, Mac OS, and Windows.
-(And just about anywhere else -- we've run it on Android phones,
-under FreeBSD, Haiku, and elsewhere.  All you need is Python!)
-You can place a pypy distribution alongside pox.py (in a directory
-named "pypy"), and POX will run with pypy (this can be a significant
-performance boost!).
+在然后
 
-POX currently communicates with OpenFlow 1.0 switches and includes
-special support for the Open vSwitch/Nicira extensions.
-
-pox.py boots up POX. It takes a list of module names on the command line,
-locates the modules, calls their launch() function (if it exists), and
-then transitions to the "up" state.
-
-Modules are looked for everywhere that Python normally looks, plus the
-"pox" and "ext" directories.  Thus, you can do the following:
-
-  ./pox.py forwarding.l2_learning
-
-You can pass options to the modules by specifying options after the module
-name.  These are passed to the module's launch() funcion.  For example,
-to set the address or port of the controller, invoke as follows:
-
-  ./pox.py openflow.of_01 --address=10.1.1.1 --port=6634
-
-pox.py also supports a few command line options of its own which should
-be given first:
- --verbose      print stack traces for initialization exceptions
- --no-openflow  don't start the openflow module automatically
+mininet> h1 python /home/floodlight/server1.py &
+mininet> h2 python /home/floodlight/server2.py &
+mininet> h3 python /home/floodlight/server3.py &
+mininet> h4 firefox &
+  
+  其中serve的代码在web/文件夹下
+  
+  
+  
+  以上
