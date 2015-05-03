@@ -1,5 +1,5 @@
-##POX是一个开源的OpenFlow 控制器，我们是来自北邮的创项目数据并行计算的软硬件项目成员，我们fork了POX之后
-参考POX的相关代码，实线了主要以下三个功能
+![北京邮电大学](http://7sbxri.com1.z0.glb.clouddn.com/d4012cce4d5bcbfcd4f34097444a8990.png)
+##POX是一个开源的OpenFlow 控制器 ###我们是来自北邮的创项目数据并行计算的软硬件项目成员，我们fork了POX之后 参考POX的相关代码，实线了主要以下三个功能
 1. 简单的防火墙
 2. 缓存服务器
 3. 负载均衡集群
@@ -21,7 +21,7 @@ mininet> h3 python /home/floodlight/server3.py &
 mininet> h4 firefox &
   ```
   其中serve的代码在web/文件夹下
-  
+  欲了解更多有关我们项的内容请查看[北邮大创-数据并行软硬件优化](http://fuwuqiapp1.sinaapp.com/)
   
   
   以上
